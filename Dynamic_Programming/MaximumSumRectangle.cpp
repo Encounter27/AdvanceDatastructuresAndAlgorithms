@@ -78,7 +78,7 @@ int getBiggestRect(const Mat& m, int& maxL, int& maxR, int& maxU, int& maxD)
 			if(currSum > maxSum)
 			{
 				maxL = left;
-			    maxR = right;
+				maxR = right;
 				maxU = up;
 				maxD = down;
 				maxSum = currSum;	
