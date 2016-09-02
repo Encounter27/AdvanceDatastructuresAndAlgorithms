@@ -42,8 +42,8 @@ void maxProdcut(int arr[], int n)
 		}
 
 		int temp = maxEndingHere;
-		maxEndingHere = max(maxEndingHere * arr[i], minEndingHere * arr[i]);
-		minEndingHere = min( temp * arr[i] , minEndingHere * arr[i]);
+		maxEndingHere = max(max(maxEndingHere * arr[i], minEndingHere * arr[i]), arr[i]);
+		minEndingHere = min(min( temp * arr[i] , minEndingHere * arr[i]), arr[i]);
 
 		max_so_far = maxEndingHere > max_so_far ? maxEndingHere : max_so_far;
 	}
@@ -56,7 +56,7 @@ void maxProdcut(int arr[], int n)
 int main()
 {
 	// try all bellow test cases
-	int arr[] = {-1,-3,-4}; // expectde 3
+	int arr[] = {-1,-3,-4}; // expectde 12
 	int n =  SIZE(arr);
 	cout << "res = ";
 	maxProdcut(arr, n);
