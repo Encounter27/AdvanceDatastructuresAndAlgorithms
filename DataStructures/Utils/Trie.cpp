@@ -1,7 +1,7 @@
 #include "Trie.h"
 
 #define FOR(i, a, b) for (int i = (a); i < (b); ++i)
-#define ASK_KEY(ch) (ch - 'a');
+#define ASK_KEY(ch) ((unsigned)ch);
 
 Trie::Trie()
 {
@@ -25,7 +25,7 @@ void Trie::Insert(const std::string key)
 
     FOR(level, 0, key.size())
     {
-        int k = ASK_KEY(key[level]);
+        unsigned k = ASK_KEY(key[level]);
 
         if (pCrawl->children[k] == NULL)
         {
@@ -44,7 +44,7 @@ bool Trie::Search(const std::string key)
 
     FOR(level, 0, key.size())
     {
-        int k = ASK_KEY(key[level]);
+        unsigned k = ASK_KEY(key[level]);
 
         if (pCrawl->children[k] == NULL)
         {
@@ -63,7 +63,7 @@ bool Trie::PrefixSearch(const std::string key)
 
     FOR(level, 0, key.size())
     {
-        int k = ASK_KEY(key[level]);
+        unsigned k = ASK_KEY(key[level]);
 
         if (pCrawl->children[k] == NULL)
         {
@@ -101,7 +101,7 @@ bool Trie::DeleteKeyRec(Trie *root, int level, const std::string &key)
     }
     else
     {
-        int k = ASK_KEY(key[level]);
+        unsigned k = ASK_KEY(key[level]);
         if(DeleteKeyRec(root->children[k], level+1, key))
         {
             delete root->children[k];

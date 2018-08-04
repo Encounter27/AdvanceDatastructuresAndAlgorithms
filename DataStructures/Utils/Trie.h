@@ -12,7 +12,7 @@
 #include <vector>
 #include <string>
 
-#define ALPHABET_SIZE 26
+#define ALPHABET_SIZE 256
 
 class Trie
 {
